@@ -1,0 +1,32 @@
+{
+  "name": "root",
+  "private": true,
+  "description": "An exquisite React photo preview component",
+  "author": "Dmitriy Ginzburg",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/ginzlabs/awesome-photo-view.git",
+  "scripts": {
+    "dev": "pnpm -C ./packages/example dev",
+    "build": "pnpm -C ./packages/awesome-photo-view build && pnpm -C ./packages/example build",
+    "start": "pnpm -C ./packages/example start",
+    "prepare": "husky",
+    "lint": "npm run lint:js && npm run lint:prettier",
+    "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx packages/ --fix",
+    "lint:prettier": "prettier --check \"**/*\" --end-of-line auto --write",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": "eslint --fix",
+    "**/*.{js,jsx,tsx,ts,less,md,json}": "prettier --write"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.8.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "typescript": "^5.9.3"
+  }
+}

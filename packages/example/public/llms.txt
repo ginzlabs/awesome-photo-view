@@ -1,0 +1,113 @@
+# awesome-photo-view
+
+> Beautiful, gesture-driven photo viewer for React with smooth animations, pinch-to-zoom, swipe navigation, and more.
+
+awesome-photo-view is a lightweight (~11 KB gzipped) React component library for displaying images in a fullscreen, interactive lightbox. It supports touch gestures (drag, pan, pinch-to-zoom), keyboard navigation, smooth spring-physics animations, and is fully customizable with toolbars, overlays, and custom triggers. Built with TypeScript. Works with React 18+ and React 19.
+
+## Getting Started
+
+Install the package:
+
+```bash
+pnpm add awesome-photo-view
+```
+
+Import the CSS and wrap your images with `PhotoProvider` and `PhotoView`:
+
+```tsx
+import { PhotoProvider, PhotoView } from 'awesome-photo-view';
+import 'awesome-photo-view/dist/awesome-photo-view.css';
+
+export default function Gallery() {
+  return (
+    <PhotoProvider>
+      {images.map((src, i) => (
+        <PhotoView key={i} src={src}>
+          <img src={src} alt="" />
+        </PhotoView>
+      ))}
+    </PhotoProvider>
+  );
+}
+```
+
+## API Reference
+
+### PhotoProvider
+
+Wrap your `PhotoView` components with `PhotoProvider` to create a gallery group.
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| children | Child elements (should contain PhotoView components) | React.ReactNode | Required |
+| onIndexChange | Callback when the active image index changes | (index: number, state: PhotoProviderState) => void | |
+| onVisibleChange | Callback when visibility changes | (visible: boolean, index: number, state: PhotoProviderState) => void | |
+| loop | Enable loop preview; number enables when count exceeds value | boolean \| number | 3 |
+| speed | Animation speed function | (type: ActiveAnimationType) => number | () => 400 |
+| easing | Easing function | (type: ActiveAnimationType) => string | () => 'cubic-bezier(0.25, 0.8, 0.25, 1)' |
+| photoClosable | Whether clicking the image can close the viewer | boolean | |
+| maskClosable | Whether clicking the backdrop can close the viewer | boolean | true |
+| maskOpacity | Default backdrop opacity | number \| null | 1 |
+| pullClosable | Whether pull-down gesture can close the viewer | boolean | true |
+| bannerVisible | Whether the navigation bar is visible | boolean | true |
+| overlayRender | Custom overlay render function | (props: OverlayRenderProps) => React.ReactNode | |
+| toolbarRender | Custom toolbar render function | (props: OverlayRenderProps) => React.ReactNode | |
+| className | Container class name | string | |
+| maskClassName | Backdrop class name | string | |
+| photoWrapClassName | Photo wrapper class name | string | |
+| photoClassName | Photo element class name | string | |
+| loadingElement | Custom loading element | JSX.Element | |
+| brokenElement | Custom error element | JSX.Element \| ((props: BrokenElementParams) => JSX.Element) | |
+| portalContainer | Custom portal target element | HTMLElement | document.body |
+
+### PhotoView
+
+Wraps a single image or trigger element.
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| src | Image URL to display in the viewer | string | |
+| render | Custom render function (lower priority than src) | (props: PhotoRenderParams) => React.ReactNode | |
+| overlay | Overlay node displayed on top of the image | React.ReactNode | |
+| width | Custom render node width | number | |
+| height | Custom render node height | number | |
+| children | Child node, typically a thumbnail image | React.ReactElement | |
+| triggers | Trigger events to open the viewer | ('onClick' \| 'onDoubleClick')[] | ['onClick'] |
+
+### DataType
+
+Used when passing image data programmatically (e.g. via PhotoSlider).
+
+| Name | Description | Type | Default |
+|------|-------------|------|---------|
+| key | Unique identifier | number \| string | Required |
+| src | Resource URL | string | |
+| render | Custom render function | (props: PhotoRenderParams) => React.ReactNode | |
+| overlay | Overlay node | React.ReactNode | |
+| width | Custom render node width | number | |
+| height | Custom render node height | number | |
+| originRef | Reference to the trigger element for animation origin | React.MutableRefObject<HTMLElement \| null> | |
+
+### OverlayRenderProps
+
+Props passed to `overlayRender` and `toolbarRender` callback functions.
+
+| Name | Description | Type |
+|------|-------------|------|
+| images | Image list | DataType[] |
+| index | Current image index | number |
+| onIndexChange | Callback to change the active index | (index: number) => void |
+| visible | Whether the viewer is visible | boolean |
+| onClose | Close the viewer | (evt?: React.MouseEvent \| React.TouchEvent) => void |
+| overlayVisible | Whether the overlay is visible | boolean |
+| overlay | Current overlay node | React.ReactNode |
+| rotate | Current rotation angle in degrees | number |
+| onRotate | Callback to set rotation | (rotate: number) => void |
+| scale | Current zoom scale | number |
+| onScale | Callback to set zoom scale | (scale: number) => void |
+
+## Links
+
+- [GitHub](https://github.com/ginzlabs/awesome-photo-view)
+- [npm](https://www.npmjs.com/package/awesome-photo-view)
+- [Documentation](https://awesome-photo-view.vercel.app)

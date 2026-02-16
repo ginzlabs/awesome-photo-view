@@ -1,0 +1,8 @@
+packages:
+  - packages/**
+  - '!**/test/**'
+
+ignoredBuiltDependencies:
+  - esbuild
+  - less
+  - sharp
