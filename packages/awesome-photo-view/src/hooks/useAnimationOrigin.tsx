@@ -19,6 +19,7 @@ export default function useAnimationOrigin(
   loaded: boolean,
   speed: number,
   updateEasing: (pause: boolean) => void,
+  isActive: boolean,
 ): [
   // Animation state
   easingMode: EasingMode,
@@ -39,6 +40,11 @@ export default function useAnimationOrigin(
       initialTime.current = Date.now();
     }
     if (!loaded) {
+      return;
+    }
+    // Skip animation for non-active slides to prevent iOS edge-image flash
+    if (!isActive) {
+      updateEasingMode(4);
       return;
     }
     handleUpdateOrigin(originRef, updateOriginRect);

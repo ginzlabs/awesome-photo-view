@@ -14,11 +14,12 @@ export default function useAnimationPosition(
   scale: number,
   speed: number,
   updateEasing: (pause: boolean) => void,
+  isActive: boolean,
 ) {
   // Delayed width/height update
   const [autoWidth, autoHeight, autoScale] = useTargetScale(width, height, scale, speed, updateEasing);
   // Animation origin handling
-  const [easingMode, originRect] = useAnimationOrigin(visible, originRef, loaded, speed, updateEasing);
+  const [easingMode, originRect] = useAnimationOrigin(visible, originRef, loaded, speed, updateEasing, isActive);
 
   // Calculate animation position
   const { T, L, W, H, FIT } = originRect;

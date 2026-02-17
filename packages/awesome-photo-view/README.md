@@ -5,7 +5,7 @@
 [![minzipped size](https://img.shields.io/bundlephobia/minzip/awesome-photo-view)](https://bundlephobia.com/package/awesome-photo-view)
 [![license](https://img.shields.io/npm/l/awesome-photo-view)](https://github.com/ginzlabs/awesome-photo-view/blob/main/LICENSE)
 
-A modern photo viewer component for React. Touch gestures, smooth animations, pinch-to-zoom, swipe navigation. Based on [react-photo-view](https://github.com/MinJieLiu/react-photo-view).
+A modern photo viewer component for React with touch gestures, smooth animations, pinch-to-zoom, and swipe navigation. Optimized for mobile, plays nicely in gallery carousels. Based on [react-photo-view](https://github.com/MinJieLiu/react-photo-view).
 
 ## Features
 
@@ -25,4 +25,4 @@ A modern photo viewer component for React. Touch gestures, smooth animations, pi
 
 ## License
 
-Apache-2.0 -- [MinJieLiu](https://github.com/MinJieLiu), [Dmitriy Ginzburg](https://github.com/ginzlabs)
+Apache-2.0 -- [Dmitriy Ginzburg](https://github.com/ginzlabs), [MinJieLiu](https://github.com/MinJieLiu)

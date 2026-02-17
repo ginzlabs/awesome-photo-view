@@ -50,4 +50,4 @@ function App() {
 
 ## License
 
-Apache-2.0 -- [MinJieLiu](https://github.com/MinJieLiu), [Dmitriy Ginzburg](https://github.com/ginzlabs)
+Apache-2.0 -- [Dmitriy Ginzburg](https://github.com/ginzlabs), [MinJieLiu](https://github.com/MinJieLiu)

@@ -415,6 +415,7 @@ export default function PhotoBox({
   const [translateX, translateY, currentWidth, currentHeight, currentScale, opacity, easingMode, FIT] =
     useAnimationPosition(visible, originRef, loaded, x, y, width, height, scale, speed, (isPause: boolean) =>
       updateState({ pause: isPause }),
+    isActive,
     );
   // Image objectFit transition time
   const transitionLayoutTime = easingMode < 4 ? speed / 2 : easingMode > 4 ? speed : 0;

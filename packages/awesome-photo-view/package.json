@@ -3,12 +3,6 @@
   "version": "1.0.0",
   "description": "A modern photo viewer for React with touch gestures, smooth animations, and pinch-to-zoom",
   "author": "Dmitriy Ginzburg",
-  "contributors": [
-    {
-      "name": "MinJieLiu",
-      "url": "https://github.com/MinJieLiu"
-    }
-  ],
   "license": "Apache-2.0",
   "type": "module",
   "homepage": "https://awesome-photo-view.vercel.app",
@@ -40,13 +34,20 @@
     "react",
     "react component",
     "react photo",
-    "awesome-photo-view",
     "photo",
     "image",
+    "photo viewer",
+    "image viewer",
     "photo preview",
     "image preview",
     "gallery",
-    "carousel"
+    "carousel",
+    "lightbox",
+    "react lightbox",
+    "zoom",
+    "pinch-to-zoom",
+    "swipe",
+    "touch"
   ],
   "scripts": {
     "build": "tsup && node scripts/prepend-use-client.mjs && node scripts/build-css.mjs",
